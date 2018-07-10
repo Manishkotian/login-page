@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<title>Login Form</title>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="This is a custom login page with form validation using AngularJs">
+		<meta name="keywords" content="Login Page,Sample Login Page,Form Validation">
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./styles.css">
+		<script src="./app.js"></script>
+	</head>
+	<body ng-app="loginForm" ng-controller="LoginController" ng-init="clearInputFields()">
+		<div class="container form-border">
+		  	<h2 class="text-center">Login Page</h2>
+		  	<form role="form" name="validateLoginForm" novalidate>
+		    	<div class="form-group">
+		      		<label>Email *</label>
+		      		<input type="text" class="form-control" id="emailId" placeholder="Enter email" name="emailId" ng-model="user.emailId" ng-pattern="emailId_pattern" ng-required="true" autocomplete="off">
+		       		<span class="danger-text" ng-if="validateLoginForm.emailId.$error.required && validateLoginForm.emailId.$dirty">Email is a required field</span>
+            		<span class="danger-text" ng-show="validateLoginForm.emailId.$error.pattern">Invalid Email</span>
+		    	</div>
+		    	<div class="form-group">
+		      		<label>Password *</label>
+		      		<input type="password" class="form-control" id="password" placeholder="Enter password" name="password" ng-model="user.password" ng-required="true" ng-pattern="password_pattern" autocomplete="off">
+		      		<span class="danger-text" ng-if="validateLoginForm.password.$error.required && validateLoginForm.password.$dirty">Password is a required field</span>
+            		<span class="danger-text" ng-show="validateLoginForm.password.$error.pattern">Password must be of length minimum 4 and maximum 10</span>
+		    	</div>
+		    	<div class="form-group">
+		      		<label>Phone Number *</label>
+		      		<input numbers-only class="form-control" id="phonenumber" placeholder="Enter phone number" name="phonenumber" ng-model="user.phonenumber" ng-required="true" ng-pattern="phonenumber_pattern" autocomplete="off">
+		       		<span class="danger-text" ng-if="validateLoginForm.phonenumber.$error.required && validateLoginForm.phonenumber.$dirty">Phone number is a required field</span>
+            		<span class="danger-text" ng-show="validateLoginForm.phonenumber.$error.pattern">Please enter a 10 digit number</span>
+		    	</div>
+		    	<button type="submit" class="btn btn-primary center-block button-hover" ng-disabled="validateLoginForm.$invalid" ng-click="loginUserDetails(user)">Submit</button>
+		    	<p class="success-message primary-text text-center" ng-show="loginSuccessMessage">Login Successful</p>
+		  	</form>
+		</div>
+	</body>
+</html>

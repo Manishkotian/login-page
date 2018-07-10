@@ -1,0 +1,28 @@
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: rgba(179, 232, 210, 0.21);
+}
+div.form-border {
+	width:25%;
+	margin: 10% auto;
+	height: 100%;
+	border: 2px solid red;
+    border-radius: 5px;
+    padding : 20px 20px;
+}
+.button-hover:hover {
+	background-color:#075598;
+}
+.danger-text{
+  	color:red;
+}
+.primary-text{
+  	color:blue;
+}
+.success-message{
+	margin-top: 12px;
+    font-size: 20px;
+    font-weight: 600;
+}
